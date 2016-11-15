@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+# Recommend setting MAX_OLD_SPACE to 460 in Heroku 1x dyno, which is what we're using in staging atm. 920 MB is the recommended old space limit in production. Node has a hard memory limit at 1.5GB per process.
+# https://devcenter.heroku.com/articles/node-best-practices#avoid-garbage
+
+MAX_OLD_SPACE=${MAX_OLD_SPACE:=920}
+
+echo "Starting with $MAX_OLD_SPACE MB old space limit"
+
+node server/index.js --optimize_for_size --max_old_space_size=$MAX_OLD_SPACE --gc_interval=100
