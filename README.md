@@ -1,3 +1,10 @@
+Trying out Get-Kisi's Api to
+
+* Create User - done
+* Login User ( after email confirmation) - done
+* Create Lock - pending
+* Trigger unlocks - pending
+
 How to run locally
 
 ```
