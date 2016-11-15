@@ -5,6 +5,7 @@ import apiErrorHandler from "../util/api-error-handler";
 import { RegisterApi as registerApi } from "./routes";
 import { LoginApi as loginApi } from "./routes";
 import { UserApi as userApi } from "./routes";
+import { LockApi as lockApi } from "./routes";
 
 
 export default function Api() {
@@ -14,6 +15,7 @@ export default function Api() {
   api.use(mount("/register", registerApi));
   api.use(mount("/login", loginApi));
   api.use(mount("/user", userApi));
+  api.use(mount("/lock", lockApi));
   api.use(function* terminator() {
     return;
   });

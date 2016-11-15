@@ -14,36 +14,6 @@ import {
 } from "../../homepage/homepage-actions";
 import {connect} from "react-redux";
 
-// const submitForm = props => async event => {
-// 	event.preventDefault();
-// 		try {
-// 			const response = await axios.post("api/login/session", {
-// 					email: props.email,
-// 					password: props.password
-// 				});
-// 			if(response.data && response.status === 200 && response.data.trigger) {
-// 				props.approveAuthy(response.data.message);
-// 				function checkTouch() {
-// 					axios.get(`api/login/authy/status?X-API-TOKEN=${response.headers.token}`).then((response) => {
-// 						if (response.data.status == "approved") {
-// 							window.location = `${window.location.protocol}//${window.location.host}`;
-//           	} else if (response.data.status == "denied") {
-//               window.location = `${window.location.protocol}//${window.location.host}/verify`;
-//             }
-//             else {
-// 		          setTimeout(checkTouch(), 6000);
-// 		        }
-// 					});
-// 				}
-// 				checkTouch();
-// 			} else if(!response.data.trigger){
-// 				window.location = `${window.location.protocol}//${window.location.host}/verify`;
-// 			}
-// 		} catch(err) {
-// 			props.onSubmit("Error Logging In, Please check email/password");
-// 		};
-// }
-
 const mapStateToProps = state => ({
 	user: state.get("user")
 });

@@ -11,8 +11,8 @@ export const fetchUser = (user) => ({
 });
 
 export const actionStatus = (response) => ({
-	type: ACTION_RESPONSE,
-	response
+  type: ACTION_RESPONSE,
+  response
 })
 
 export const registerUser = (details) => async dispatch => {
@@ -27,8 +27,9 @@ export const registerUser = (details) => async dispatch => {
 export const loginUser = (details) => async dispatch => {
   try {
     const response = await axios.post(`/api/login`, details);
-    console.log(response);
-    dispatch(actionStatus(response.data));
+    if(response.status === 201 || response.status === 204) {
+	    window.location = `${window.location.protocol}//${window.location.host}`;
+    }
   } catch (error) {
     dispatch(actionStatus(error.response.data));
     console.log(error.response.data, "error logging in");
@@ -46,3 +47,6 @@ export const fetchUserApi = () => async dispatch => {
     console.trace(error);
   }
 };
+
+
+// export const createLocks = (place_id)

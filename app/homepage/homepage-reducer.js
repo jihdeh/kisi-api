@@ -9,7 +9,6 @@ import {
 const initialState  = new Map();
 
 const HomepageReducer = (state = initialState, action) => {
-	console.log(action)
 	switch(action.type) {
 		case FETCH_USER:
 			return set("user", action.user, state);

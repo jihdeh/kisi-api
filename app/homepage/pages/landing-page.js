@@ -26,11 +26,12 @@ class HomeView extends Component {
 		const profile = Object.assign({}, user.toJS());
 		return (
 			<div>
-				<Row>
+				{profile.user && <Row>
 					<p>User home page</p>
-					<p>Email: {profile.email}</p>
-					<p>Your Name: {profile.username}</p>
+					<p>User iD: {profile.user.userId}</p>
+					<p>Email: {profile.user.email}</p>
 				</Row>
+				}
 			</div>
 		)
 	}

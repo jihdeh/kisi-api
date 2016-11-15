@@ -6,8 +6,11 @@ function* loginUser(next) {
 	  const { email, password } = this.request.body;
     const response = yield kisiClient.signIn(email, password);
     this.status = 201;
-    // this.response.body = "Successfully Registered";
-    this.respose.redirect = "/";
+    this.cookies.set("authorization", JSON.stringify({
+    	userId: response.userId, 
+    	email: response.email, 
+    	secret: response.secret}));
+    this.body = response;
   } catch (error) {
     this.status = 401;
     this.body = error.reason;
