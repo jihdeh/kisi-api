@@ -8,39 +8,17 @@ import onlyUpdateForPropTypes from "recompose/onlyUpdateForPropTypes";
 import setDisplayName from "recompose/setDisplayName";
 import withHandlers from "recompose/withHandlers";
 import {Row, Col, Input, Button} from "react-materialize";
-import {
-	registerUser
-} from "../../homepage/homepage-actions";
-import {connect} from "react-redux";
-
-const mapStateToProps = state => ({
-	user: state.get("user")
-});
-
-const mapDispatchToProps = (dispatch, props) => ({
-	onRegister: (details) => {
-		event.preventDefault();
-		if(!details.username || !details.email || !details.password) {
-			props.onSubmit("Cannot register due to errors in form, please rectify");
-		} else {
-			dispatch(registerUser(details));
-		}
-	}
-});
 
 const enhance = compose(
-	setDisplayName("UserLocks"),
+	setDisplayName("Locks"),
 	onlyUpdateForPropTypes,
 	setPropTypes({
 		user: IPropTypes.map
 	}),
-	withState("username", "onEnterName", ""),
-	withHandlers({
-	}),
 	connect(mapStateToProps, mapDispatchToProps)
 );
 
-const UserLocks = enhance(({
+const Locks = enhance(({
 	user = new Map()
 }) => {
 	const user = Object.assign({}, user.toJS());
@@ -53,4 +31,4 @@ const UserLocks = enhance(({
 	)
 });
 
-export default UserLocks;
+export default Locks;

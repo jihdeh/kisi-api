@@ -32,7 +32,6 @@ export const loginUser = (details) => async dispatch => {
     }
   } catch (error) {
     dispatch(actionStatus(error.response.data));
-    console.log(error.response.data, "error logging in");
   }
 };
 

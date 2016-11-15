@@ -17,14 +17,9 @@ const mapStateToProps = state => ({
 	user: state.get("user")
 });
 
-const mapDispatchToProps = (dispatch, props) => ({
-	onRegister: (details) => {
-		event.preventDefault();
-		if(!details.username || !details.email || !details.password) {
-			props.onSubmit("Cannot register due to errors in form, please rectify");
-		} else {
-			dispatch(registerUser(details));
-		}
+const mapDispatchToProps = dispatch => ({
+	createLock: (id) => {
+		//TODO
 	}
 });
 
@@ -34,7 +29,6 @@ const enhance = compose(
 	setPropTypes({
 		user: IPropTypes.map
 	}),
-	withState("username", "onEnterName", ""),
 	withHandlers({
 
 	}),

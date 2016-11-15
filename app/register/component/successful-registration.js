@@ -19,7 +19,6 @@ class SuccessFulReg extends Component {
 		return (
 			<div style={styles.topDiv}>
 				<p> You have successfully registered, please <Link to="/login">Login</Link> </p>
-				<p>Make sure to download the app "AUTHY" to your Android or IOS device, to retrive your one time token</p>
 			</div>
 		)
 	}
